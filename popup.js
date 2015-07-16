@@ -6,7 +6,6 @@ $(document).ready(function(){
 });
 
 function makeLinks(data, ulist) {
-
 	var i = 0
 	for (i = 0; (i < 10 && (data.getElementsByTagName("item")[i] != null)); i += 1) {
 		var item = data.getElementsByTagName("item")[i];
@@ -23,14 +22,21 @@ function makeLinks(data, ulist) {
 
 }
 
-function loadPolitics(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticPoliticsChannel?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("politics"));
+function loadPolitics(e, obj) {
+	var list = document.getElementById("politics");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticPoliticsChannel?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -38,13 +44,20 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 function loadBusiness(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticBusinessChannel?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("business"));
+    var list = document.getElementById("business");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticBusinessChannel?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -53,14 +66,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function loadCulture(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticCulture?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("culture"));
-
+	var list = document.getElementById("culture");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticCulture?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -68,14 +87,20 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 function loadGlobal(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticInternational?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("global"));
-
+	var list = document.getElementById("global");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticInternational?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -83,13 +108,20 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 function loadTech(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticScienceAndTechnology?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("tech"));
+	var list = document.getElementById("tech");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {	
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticScienceAndTechnology?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -98,14 +130,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function loadUS(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticNational?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("us"));
-
+	var list = document.getElementById("us");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {	
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticNational?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -114,14 +152,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function loadHealth(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticFood?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("health"));
-
+	var list = document.getElementById("health");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {	
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticFood?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -129,13 +173,20 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 function loadSexes(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticSexesChannel?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("sexes"));
+	var list = document.getElementById("sexes");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {	
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticSexesChannel?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -144,13 +195,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function loadEducation(e) {
-	$.ajax({
-		url: "http://feeds.feedburner.com/AtlanticEducationChannel?fmt=xml",
-		type: 'GET',
-		success: function(data) {
-			makeLinks(data, document.getElementById("education"));
+	var list = document.getElementById("education");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
 		}
-	});
+	} else {	
+		$.ajax({
+			url: "http://feeds.feedburner.com/AtlanticEducationChannel?fmt=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
