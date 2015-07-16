@@ -11,15 +11,14 @@ function makeLinks(data, ulist) {
 		var item = data.getElementsByTagName("item")[i];
 		var newListElem = document.createElement("li");
 		var a = document.createElement("a");
-		a.textContent = item.getElementsByTagName("title")[0].firstChild.nodeValue;
+		a.textContent = item.getElementsByTagName("title")[0]
+			.firstChild.nodeValue
+			.toString()
+			.replace(/<\/?[^>]+(>|$)/g, "");
 		a.setAttribute('href', item.getElementsByTagName("link")[0].firstChild.nodeValue);
 		newListElem.appendChild(a)
 		ulist.appendChild(newListElem)
-		console.log(item)
-		console.log(item.getElementsByTagName("title")[0].firstChild.nodeValue)
-		console.log(newListElem)
 	}
-
 }
 
 function loadPolitics(e, obj) {
@@ -213,4 +212,25 @@ function loadEducation(e) {
 
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('button.education').addEventListener('click', loadEducation);
+})
+
+function loadPhoto(e) {
+	var list = document.getElementById("photo");
+	if (list.firstChild) {
+		while (list.firstChild) {
+			list.removeChild(list.firstChild)
+		}
+	} else {	
+		$.ajax({
+			url: "http://feeds.feedburner.com/theatlantic/infocus?format=xml",
+			type: 'GET',
+			success: function(data) {
+				makeLinks(data, list);
+			}
+		});
+	}
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('button.photo').addEventListener('click', loadPhoto);
 })
