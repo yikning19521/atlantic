@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "Atlantic Plugin",
+  "description": "Read Atlantic articles here",
+  "version": "1.0",
+ 
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+  "permissions": [
+	  "activeTab",
+	  "http://feeds.feedburner.com/AtlanticPoliticsChannel?fmt=xml",
+	  "http://feeds.feedburner.com/AtlanticBusinessChannel?fmt=xml",
+	  "http://feeds.feedburner.com/AtlanticCulture?fmt=xml",
+	  "http://feeds.feedburner.com/AtlanticInternational?fmt=xml",
+	  "http://feeds.feedburner.com/AtlanticScienceAndTechnology?fmt=xml",
+	  "http://feeds.feedburner.com/AtlanticNational?fmt=xml",
+	  "http://feeds.feedburner.com/AtlanticFood?fmt=xml",
+	  "http://feeds.feedburner.com/AtlanticSexesChannel",
+	  "http://feeds.feedburner.com/AtlanticEducationChannel",
+	  "http://www.theatlantic.com/politics/"
+   ]
+}
